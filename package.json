@@ -1,0 +1,29 @@
+{
+  "name": "web-compose",
+  "version": "0.0.1-alpha",
+  "description": "a composition library for the web, like swiftui or jetpack compose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "web-components",
+    "compose",
+    "web",
+    "swiftui",
+    "jetpack",
+    "compose"
+  ],
+  "author": "axel scheele",
+  "license": "MIT",
+  "dependencies": {
+    "lit-html": "^1.1.2",
+    "typescript": "^3.7.4"
+  },
+  "devDependencies": {
+    "inline-source-map": "^0.6.2",
+    "ts-loader": "^6.2.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
