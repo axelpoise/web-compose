@@ -8,7 +8,7 @@ export let View = (object:ViewInterface)  => {
         constructor() {
             this.element = object;
         }
-        render () {
+        render ():string {
             return this.element.render()
         }
     }

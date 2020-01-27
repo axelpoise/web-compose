@@ -11,7 +11,8 @@ export const Text = (sometext:string) => {
                 super()
                 let shadowRoot = this.attachShadow({ mode: 'open' });
                 let attr:any = this.getAttribute('text')
-                shadowRoot.innerHTML =`<div id="text">${attr}</div>`
+                let style = this.getAttribute('style')
+                shadowRoot.innerHTML =`<div id="text" style="${style}">${attr}</div>`
             }
         }
         customElements.define('compose-text', ComposeText)
@@ -19,11 +20,41 @@ export const Text = (sometext:string) => {
 
     return new class textClass implements ViewInterface { 
         render() {
-        return `<compose-text text="${sometext}" style=""></compose-text>`
+        return `<compose-text text="${sometext}" style="${this.style()}"></compose-text>`
+        }
+
+        styling = {
+            italic:'',
+            bold:'',
+            size:'',
+            font: ''
+
+        }
+
+        style(): string {
+            return this.styling.italic 
+            + this.styling.bold
+            + this.styling.size
+            + this.styling.font
         }
     
         bold() {
+            this.styling.bold = 'font-weight: bold; '
+            return this
+        }
 
+        italic() {
+            this.styling.italic = 'font-style: italic; '
+            return this
+        }
+
+        size(size:number) {
+            this.styling.size = `font-size: ${size}px; `
+            return this
+        }
+
+        font(font:string) {
+            this.styling.font = `font-family: ${font}; `
             return this
         }
     }
